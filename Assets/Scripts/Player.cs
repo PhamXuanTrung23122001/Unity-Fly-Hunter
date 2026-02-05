@@ -1,8 +1,13 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+
+    public GameObject bullet;
+
+    public Transform shootingPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,5 +24,18 @@ public class Player : MonoBehaviour
             return;
         }
         transform.position += Vector3.right * moveSpeed * xDirection * Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        if(bullet != null && shootingPoint != null)
+        {
+            Instantiate(bullet, shootingPoint.position, Quaternion.Euler(0,0,90));
+        }
     }
 }

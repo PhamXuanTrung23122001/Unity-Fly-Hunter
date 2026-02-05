@@ -190,5 +190,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28adb32b489fb44bb8ffabd7052953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buller
-  speed: 2
-  timeToDestroy: 2
+  speed: 3
+  timeToDestroy: 4
