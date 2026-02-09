@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public GameObject bullet;
 
     public Transform shootingPoint;
+
+    GameController m_gc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        m_gc = FindAnyObjectByType<GameController>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,8 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
+            m_gc.SetGameOverState(true);
+            Destroy(col.gameObject);
             Debug.Log("Enemy đã va chạm vào player, trò chơi kết thúc");
         }
     }

@@ -5,10 +5,12 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float timeToDestroy;
     Rigidbody2D m_rb;
+    GameController m_gc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        m_gc = FindAnyObjectByType<GameController>();
         Destroy(gameObject,timeToDestroy);
     }
 
@@ -27,6 +29,9 @@ public class Bullet : MonoBehaviour
     {
         if(col.CompareTag("Enemy"))
         {
+            m_gc.ScoreIncreament();
+            Destroy(gameObject);
+            Destroy(col.gameObject);
             Debug.Log("Viên đạn đã va chạm với enemy");
         }
     }
