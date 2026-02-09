@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+﻿using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -36,6 +36,13 @@ public class Player : MonoBehaviour
         if(bullet != null && shootingPoint != null)
         {
             Instantiate(bullet, shootingPoint.position, Quaternion.Euler(0,0,90));
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy đã va chạm vào player, trò chơi kết thúc");
         }
     }
 }
