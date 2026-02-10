@@ -5,12 +5,16 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float timeToDestroy;
     Rigidbody2D m_rb;
-    GameController m_gc;
+    GameController m_gc;  
+    AudioSource aus;
+    public AudioClip hitSound;
+    //public GameObject hitVfx;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_gc = FindAnyObjectByType<GameController>();
+        aus = FindAnyObjectByType<AudioSource>();
         Destroy(gameObject,timeToDestroy);
     }
 
@@ -30,8 +34,16 @@ public class Bullet : MonoBehaviour
         if(col.CompareTag("Enemy"))
         {
             m_gc.ScoreIncreament();
+            if(aus && hitSound != null )
+            {
+                aus.PlayOneShot(hitSound);
+            }
+            //if(hitVfx != null)
+            //{
+            //    Instantiate(hitVfx,col.transform.position,Quaternion.identity);
+            //}
             Destroy(gameObject);
-            Destroy(col.gameObject);
+            Destroy(col.gameObject); 
             Debug.Log("Viên đạn đã va chạm với enemy");
         }
     }

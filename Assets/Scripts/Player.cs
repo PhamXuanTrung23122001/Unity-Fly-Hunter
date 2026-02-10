@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
 
     public Transform shootingPoint;
 
+    public AudioSource aus;
+    public AudioClip shootingSound;
+
+
     GameController m_gc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +41,10 @@ public class Player : MonoBehaviour
     {
         if(bullet != null && shootingPoint != null)
         {
+            if(aus && shootingPoint !=null)
+            {
+                aus.PlayOneShot(shootingSound);
+            }
             Instantiate(bullet, shootingPoint.position, Quaternion.Euler(0,0,90));
         }
     }

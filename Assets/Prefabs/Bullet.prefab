@@ -192,3 +192,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Buller
   speed: 3
   timeToDestroy: 4
+  hitSound: {fileID: 8300000, guid: ffa2ab7e0c70ce743923b626ea796179, type: 3}
+  hitVfx: {fileID: 5596487421847951920, guid: 49dda8e50b21c634181102f5ef3d8ed3, type: 3}
