@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class GameController : MonoBehaviour
     float m_spawnTime;
     int m_score;
     bool m_isGameOver;
+    UIManager m_ui;
 
     void Start()
     {
         m_spawnTime = 0;
+        m_ui = FindAnyObjectByType<UIManager>();
+        m_ui.SetScoreText("Score : " + m_score);
     }
 
     // Update is called once per frame
@@ -21,6 +25,7 @@ public class GameController : MonoBehaviour
         if (m_isGameOver)
         {
             m_spawnTime = 0;
+            m_ui.showGameOverPanel(true);
             return;
         }
 
@@ -54,6 +59,7 @@ public class GameController : MonoBehaviour
     public void ScoreIncreament()
     {
         m_score++;
+        m_ui.SetScoreText("Score : " +  m_score);
     }
     public void SetGameOverState(bool state)
     {
@@ -62,5 +68,9 @@ public class GameController : MonoBehaviour
     public bool IsGameOver()
     {
         return m_isGameOver;
+    }
+    public void Replay()
+    {
+        SceneManager.LoadScene("GamePlay");
     }
 }
