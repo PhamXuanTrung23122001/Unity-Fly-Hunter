@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_gc.IsGameOver())
+            return;
         float xDirection = Input.GetAxisRaw("Horizontal");
         //vector3.right = (1,0,0)
         if((xDirection < 0 && transform.position.x <= -8.3f) || xDirection > 0 && transform.position.x >= 8.3f)

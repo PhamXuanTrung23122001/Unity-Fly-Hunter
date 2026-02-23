@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28adb32b489fb44bb8ffabd7052953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buller
-  speed: 3
+  speed: 7
   timeToDestroy: 4
   hitSound: {fileID: 8300000, guid: ffa2ab7e0c70ce743923b626ea796179, type: 3}
-  hitVfx: {fileID: 5596487421847951920, guid: 49dda8e50b21c634181102f5ef3d8ed3, type: 3}

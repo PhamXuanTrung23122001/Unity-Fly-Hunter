@@ -46,6 +46,10 @@ public class Bullet : MonoBehaviour
             Destroy(col.gameObject); 
             Debug.Log("Viên đạn đã va chạm với enemy");
         }
+        else if(col.CompareTag("SceneTopLimit"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
